@@ -1,4 +1,5 @@
 -- Drop existing tables if they exist
+DROP TABLE IF EXISTS stock_adjustments;
 DROP TABLE IF EXISTS order_items;
 DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS cart_items;
@@ -129,6 +130,32 @@ CREATE TABLE order_items (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
     FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+);
+
+-- Create Stock Adjustments table
+CREATE TABLE stock_adjustments (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL,
+    action ENUM('add', 'subtract') NOT NULL,
+    reason TEXT NOT NULL,
+    adjusted_by INT NOT NULL,
+    adjusted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
+    FOREIGN KEY (adjusted_by) REFERENCES users(id)
+);
+
+-- Create Payment Requests table
+CREATE TABLE payment_requests (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    order_id INT NOT NULL,
+    payment_request_id VARCHAR(255) NOT NULL,
+    payment_id VARCHAR(255) DEFAULT NULL,
+    amount DECIMAL(10,2) NOT NULL,
+    status ENUM('created', 'completed', 'failed') NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE
 );
 
 -- Insert sample admin user

@@ -1,6 +1,33 @@
 <?php
+/**
+ * Admin Categories Management
+ * 
+ * This page allows administrators to create, edit, and delete product categories
+ */
 require_once '../config/database.php';
 require_once 'includes/header.php';
+
+// Function to generate a slug from a string
+function generateSlug($string) {
+    // Replace non letter or digits by -
+    $string = preg_replace('~[^\pL\d]+~u', '-', $string);
+    // Transliterate
+    $string = iconv('utf-8', 'us-ascii//TRANSLIT', $string);
+    // Remove unwanted characters
+    $string = preg_replace('~[^-\w]+~', '', $string);
+    // Trim
+    $string = trim($string, '-');
+    // Remove duplicate -
+    $string = preg_replace('~-+~', '-', $string);
+    // Lowercase
+    $string = strtolower($string);
+    
+    if (empty($string)) {
+        return 'n-a';
+    }
+    
+    return $string;
+}
 
 // Handle category deletion
 if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
@@ -38,16 +65,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($name)) {
         $error_message = "Category name is required.";
     } else {
+        // Generate slug from name
+        $slug = generateSlug($name);
+        
+        // Check if slug already exists
+        $check_slug_query = "SELECT id FROM categories WHERE slug = ? AND id != ?";
+        $stmt = $conn->prepare($check_slug_query);
+        $category_id_val = $category_id ?: 0;
+        $stmt->bind_param("si", $slug, $category_id_val);
+        $stmt->execute();
+        $slug_result = $stmt->get_result();
+        
+        if ($slug_result->num_rows > 0) {
+            // Slug exists, append a random string
+            $slug = $slug . '-' . substr(md5(time()), 0, 5);
+        }
+        
         if ($category_id) {
             // Update existing category
-            $query = "UPDATE categories SET name = ?, description = ? WHERE id = ?";
+            $query = "UPDATE categories SET name = ?, description = ?, slug = ? WHERE id = ?";
             $stmt = $conn->prepare($query);
-            $stmt->bind_param("ssi", $name, $description, $category_id);
+            $stmt->bind_param("sssi", $name, $description, $slug, $category_id);
         } else {
             // Add new category
-            $query = "INSERT INTO categories (name, description) VALUES (?, ?)";
+            $query = "INSERT INTO categories (name, description, slug) VALUES (?, ?, ?)";
             $stmt = $conn->prepare($query);
-            $stmt->bind_param("ss", $name, $description);
+            $stmt->bind_param("sss", $name, $description, $slug);
         }
 
         if ($stmt->execute()) {
@@ -56,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name = $description = '';
             $category_id = null;
         } else {
-            $error_message = "Failed to save category.";
+            $error_message = "Failed to save category: " . $stmt->error;
         }
     }
 }
@@ -154,6 +197,7 @@ $categories = $conn->query($query);
                             <thead>
                                 <tr>
                                     <th>Name</th>
+                                    <th>Slug</th>
                                     <th>Description</th>
                                     <th>Products</th>
                                     <th>Actions</th>
@@ -163,6 +207,7 @@ $categories = $conn->query($query);
                                 <?php while ($category = $categories->fetch_assoc()): ?>
                                 <tr>
                                     <td><?php echo htmlspecialchars($category['name']); ?></td>
+                                    <td><small class="text-muted"><?php echo htmlspecialchars($category['slug'] ?? ''); ?></small></td>
                                     <td><?php echo htmlspecialchars($category['description']); ?></td>
                                     <td><?php echo $category['product_count']; ?></td>
                                     <td>

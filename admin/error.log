@@ -1,0 +1,42 @@
+[2025-05-19 19:39:42] Exception: Field 'slug' doesn't have a default value in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\admin\brands.php on line 53
+[2025-05-19 19:39:53] Exception: Field 'slug' doesn't have a default value in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\admin\brands.php on line 53
+[2025-05-19 19:41:46] Exception: Field 'slug' doesn't have a default value in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\admin\brands.php on line 53
+[2025-05-19 20:01:15] Error: [8192] htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\admin\users.php on line 166
+[2025-05-19 20:01:15] Error: [8192] htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\admin\users.php on line 171
+[2025-05-19 20:16:55] Exception: Table 'drunkies_db.payment_requests' doesn't exist in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\admin\index.php on line 29
+[2025-05-19 20:16:55] Error: [8192] htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\admin\users.php on line 166
+[2025-05-19 20:16:55] Error: [8192] htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\admin\users.php on line 171
+[2025-05-19 20:16:56] Exception: Table 'drunkies_db.payment_requests' doesn't exist in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\admin\index.php on line 29
+[2025-05-19 20:17:32] Exception: Table 'drunkies_db.payment_requests' doesn't exist in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\admin\index.php on line 29
+[2025-05-19 20:18:27] Error: [2] Undefined array key "icon" in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 85
+[2025-05-19 20:18:27] Error: [8192] htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 85
+[2025-05-19 20:18:27] Error: [2] Undefined array key "icon" in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 85
+[2025-05-19 20:18:27] Error: [8192] htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 85
+[2025-05-19 20:18:27] Error: [2] Undefined array key "icon" in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 85
+[2025-05-19 20:18:27] Error: [8192] htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 85
+[2025-05-19 20:18:27] Error: [2] Undefined array key "icon" in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 85
+[2025-05-19 20:18:27] Error: [8192] htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 85
+[2025-05-19 20:18:27] Error: [2] Undefined array key "icon" in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 85
+[2025-05-19 20:18:27] Error: [8192] htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 85
+[2025-05-19 20:18:27] Error: [2] Undefined array key "icon" in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 85
+[2025-05-19 20:18:27] Error: [8192] htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 85
+[2025-05-19 20:18:27] Error: [2] include(includes/product_modal.php): Failed to open stream: No such file or directory in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 136
+[2025-05-19 20:18:27] Error: [2] include(): Failed opening 'includes/product_modal.php' for inclusion (include_path='C:\schoolWorks\XAMPP\php\PEAR') in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 136
+[2025-05-19 20:18:27] Error: [2] Cannot modify header information - headers already sent by (output started at C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php:70) in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\functions.php on line 32
+[2025-05-19 20:18:56] Error: [2] Undefined array key "icon" in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 85
+[2025-05-19 20:18:56] Error: [8192] htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 85
+[2025-05-19 20:18:56] Error: [2] Undefined array key "icon" in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 85
+[2025-05-19 20:18:56] Error: [8192] htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 85
+[2025-05-19 20:18:56] Error: [2] Undefined array key "icon" in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 85
+[2025-05-19 20:18:56] Error: [8192] htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 85
+[2025-05-19 20:18:56] Error: [2] Undefined array key "icon" in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 85
+[2025-05-19 20:18:56] Error: [8192] htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 85
+[2025-05-19 20:18:56] Error: [2] Undefined array key "icon" in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 85
+[2025-05-19 20:18:56] Error: [8192] htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 85
+[2025-05-19 20:18:56] Error: [2] Undefined array key "icon" in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 85
+[2025-05-19 20:18:56] Error: [8192] htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 85
+[2025-05-19 20:18:56] Error: [2] include(includes/product_modal.php): Failed to open stream: No such file or directory in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 136
+[2025-05-19 20:18:56] Error: [2] include(): Failed opening 'includes/product_modal.php' for inclusion (include_path='C:\schoolWorks\XAMPP\php\PEAR') in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php on line 136
+[2025-05-19 20:18:56] Error: [2] Cannot modify header information - headers already sent by (output started at C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\header.php:70) in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\functions.php on line 32
+[2025-05-19 20:22:05] Exception: mysqli_stmt::bind_param(): Argument #3 cannot be passed by reference in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\admin\brands.php on line 69
+[2025-05-19 20:22:39] Exception: Field 'slug' doesn't have a default value in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\admin\categories.php on line 53
