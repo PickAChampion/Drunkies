@@ -56,16 +56,24 @@ $current_page = basename($_SERVER['PHP_SELF']);
             <i class="fas fa-shopping-cart me-2"></i>
             <span>Orders</span>
         </a>
+        <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'payments.php' ? 'active' : ''; ?>" href="payments.php">
+            <i class="fas fa-money-bill-wave me-2"></i>
+            <span>Payments</span>
+        </a>
+        <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'sales_report.php' ? 'active' : ''; ?>" href="sales_report.php">
+            <i class="fas fa-chart-line me-2"></i>
+            <span>Sales Report</span>
+        </a>
         <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'users.php' ? 'active' : ''; ?>" href="users.php">
             <i class="fas fa-users me-2"></i>
             <span>Users</span>
         </a>
-        <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'settings.php' ? 'active' : ''; ?>" href="settings.php">
+        <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'settings.php' ? 'active' : ''; ?>" href="../settings.php">
             <i class="fas fa-cog me-2"></i>
             <span>Settings</span>
         </a>
         <div class="dropdown-divider my-3"></div>
-        <a class="nav-link" href="../index.php">
+        <a class="nav-link" href="../index.php" onclick="sessionStorage.setItem('returnToAdmin', true);">
             <i class="fas fa-home me-2"></i>
             <span>View Site</span>
         </a>

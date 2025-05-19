@@ -113,21 +113,7 @@ require_once 'includes/header.php';
                                     <?php echo $product['is_active'] ? 'Active' : 'Inactive'; ?>
                                 </a>
                             </td>
-                            <td>
-                                <div class="btn-group">
-                                    <button type="button" 
-                                            class="btn btn-sm btn-primary"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#editProductModal<?php echo $product['id']; ?>">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                    <button type="button"
-                                            class="btn btn-sm btn-danger"
-                                            onclick="deleteProduct(<?php echo $product['id']; ?>)">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </div>
-                            </td>
+                                                        <td>                                <div class="btn-group">                                    <a href="edit_product.php?id=<?php echo $product['id']; ?>"                                        class="btn btn-sm btn-primary"                                       data-bs-toggle="tooltip"                                       title="Edit Product">                                        <i class="fas fa-edit"></i>                                    </a>                                    <a href="manage_stock.php?id=<?php echo $product['id']; ?>"                                        class="btn btn-sm btn-success"                                       data-bs-toggle="tooltip"                                       title="Manage Stock">                                        <i class="fas fa-boxes"></i>                                    </a>                                    <button type="button"                                            class="btn btn-sm btn-danger"                                            onclick="deleteProduct(<?php echo $product['id']; ?>)"                                            data-bs-toggle="tooltip"                                            title="Delete Product">                                        <i class="fas fa-trash"></i>                                    </button>                                </div>                            </td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>

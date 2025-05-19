@@ -39,3 +39,11 @@
 [2025-05-18 17:59:29] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
 [2025-05-18 17:59:29] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
 [2025-05-18 18:02:32] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-19 19:13:06] Exception: Unknown column 'first_name' in 'field list' in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\ajax\register.php on line 68
+[2025-05-19 19:13:11] Exception: Unknown column 'first_name' in 'field list' in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\ajax\register.php on line 68
+[2025-05-19 19:13:27] Exception: Unknown column 'first_name' in 'field list' in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\ajax\register.php on line 68
+[2025-05-19 19:14:21] Exception: Unknown column 'first_name' in 'field list' in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\ajax\register.php on line 68
+[2025-05-19 19:14:37] Exception: Unknown column 'first_name' in 'field list' in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\ajax\register.php on line 68
+[2025-05-19 19:16:02] Exception: Unknown column 'first_name' in 'field list' in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\ajax\register.php on line 68
+[2025-05-19 20:18:53] Exception: Unknown column 'is_active' in 'where clause' in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\database.php on line 31
+[2025-05-19 20:44:16] Exception: Unknown column 'is_active' in 'where clause' in C:\schoolWorks\XAMPP\htdocs\Drunkies\Drunkies\includes\database.php on line 31

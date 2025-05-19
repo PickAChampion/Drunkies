@@ -39,10 +39,28 @@ $categories = getAllCategories();
     
     <!-- SweetAlert2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- Admin Return Handler -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if user came from admin panel
+        if (sessionStorage.getItem('returnToAdmin')) {
+            // Find admin dashboard links and modify them
+            const adminLinks = document.querySelectorAll('a[href="admin/index.php"]');
+            adminLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.location.href = 'admin/index.php';
+                    sessionStorage.removeItem('returnToAdmin');
+                });
+            });
+        }
+    });
+    </script>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.php">
                 <i class="fas fa-beer me-2"></i>Drunkies
@@ -97,6 +115,13 @@ $categories = getAllCategories();
                 </ul>
                 <ul class="navbar-nav">
                     <?php if (isset($_SESSION['user_id'])): ?>
+                        <?php if ($_SESSION['is_admin']): ?>
+                            <li class="nav-item">
+                                <a class="nav-link admin-dashboard-link" href="admin/index.php">
+                                    <i class="fas fa-tachometer-alt me-1"></i> Admin Dashboard
+                                </a>
+                            </li>
+                        <?php endif; ?>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle user-dropdown" href="#" id="userMenu" role="button" data-bs-toggle="dropdown">
                                 <i class="fas fa-user me-2"></i><?php echo htmlspecialchars($_SESSION['username']); ?>

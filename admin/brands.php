@@ -2,6 +2,28 @@
 require_once '../config/database.php';
 require_once 'includes/header.php';
 
+// Function to generate a slug from a string
+function generateSlug($string) {
+    // Replace non letter or digits by -
+    $string = preg_replace('~[^\pL\d]+~u', '-', $string);
+    // Transliterate
+    $string = iconv('utf-8', 'us-ascii//TRANSLIT', $string);
+    // Remove unwanted characters
+    $string = preg_replace('~[^-\w]+~', '', $string);
+    // Trim
+    $string = trim($string, '-');
+    // Remove duplicate -
+    $string = preg_replace('~-+~', '-', $string);
+    // Lowercase
+    $string = strtolower($string);
+    
+    if (empty($string)) {
+        return 'n-a';
+    }
+    
+    return $string;
+}
+
 // Handle brand deletion
 if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
     $brand_id = $_GET['delete'];
@@ -38,16 +60,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($name)) {
         $error_message = "Brand name is required.";
     } else {
+        // Generate slug from name
+        $slug = generateSlug($name);
+        
+        // Check if slug already exists
+        $check_slug_query = "SELECT id FROM brands WHERE slug = ? AND id != ?";
+        $stmt = $conn->prepare($check_slug_query);
+        $brand_id_val = $brand_id ?: 0; // Create a variable to hold the value
+        $stmt->bind_param("si", $slug, $brand_id_val);
+        $stmt->execute();
+        $slug_result = $stmt->get_result();
+        
+        if ($slug_result->num_rows > 0) {
+            // Slug exists, append a random string
+            $slug = $slug . '-' . substr(md5(time()), 0, 5);
+        }
+        
         if ($brand_id) {
             // Update existing brand
-            $query = "UPDATE brands SET name = ?, description = ? WHERE id = ?";
+            $query = "UPDATE brands SET name = ?, description = ?, slug = ? WHERE id = ?";
             $stmt = $conn->prepare($query);
-            $stmt->bind_param("ssi", $name, $description, $brand_id);
+            $stmt->bind_param("sssi", $name, $description, $slug, $brand_id);
         } else {
             // Add new brand
-            $query = "INSERT INTO brands (name, description) VALUES (?, ?)";
+            $query = "INSERT INTO brands (name, description, slug) VALUES (?, ?, ?)";
             $stmt = $conn->prepare($query);
-            $stmt->bind_param("ss", $name, $description);
+            $stmt->bind_param("sss", $name, $description, $slug);
         }
 
         if ($stmt->execute()) {
@@ -56,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name = $description = '';
             $brand_id = null;
         } else {
-            $error_message = "Failed to save brand.";
+            $error_message = "Failed to save brand: " . $stmt->error;
         }
     }
 }
@@ -154,6 +192,7 @@ $brands = $conn->query($query);
                             <thead>
                                 <tr>
                                     <th>Name</th>
+                                    <th>Slug</th>
                                     <th>Description</th>
                                     <th>Products</th>
                                     <th>Actions</th>
@@ -163,6 +202,7 @@ $brands = $conn->query($query);
                                 <?php while ($brand = $brands->fetch_assoc()): ?>
                                 <tr>
                                     <td><?php echo htmlspecialchars($brand['name']); ?></td>
+                                    <td><small class="text-muted"><?php echo htmlspecialchars($brand['slug'] ?? ''); ?></small></td>
                                     <td><?php echo htmlspecialchars($brand['description']); ?></td>
                                     <td><?php echo $brand['product_count']; ?></td>
                                     <td>
