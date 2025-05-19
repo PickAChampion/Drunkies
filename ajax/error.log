@@ -1,0 +1,41 @@
+[2025-05-18 12:12:54] Exception: Undefined constant "DB_HOST" in C:\schoolWorks\XAMPP\htdocs\Drunkies-Application\includes\database.php on line 9
+[2025-05-18 12:12:56] Exception: Undefined constant "DB_HOST" in C:\schoolWorks\XAMPP\htdocs\Drunkies-Application\includes\database.php on line 9
+[2025-05-18 12:12:57] Exception: Undefined constant "DB_HOST" in C:\schoolWorks\XAMPP\htdocs\Drunkies-Application\includes\database.php on line 9
+[2025-05-18 15:50:56] Exception: Unknown column 'first_name' in 'field list' in C:\newxampp\htdocs\Drunkies-Web-main\ajax\register.php on line 68
+[2025-05-18 15:51:08] Exception: Unknown column 'first_name' in 'field list' in C:\newxampp\htdocs\Drunkies-Web-main\ajax\register.php on line 68
+[2025-05-18 15:56:24] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 15:56:25] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 15:56:25] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 15:56:25] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:42:34] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:42:35] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:42:35] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:42:36] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:42:36] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:42:45] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:42:45] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:45:02] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:45:24] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:45:27] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:45:46] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:47:11] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:54:35] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:56:27] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:56:28] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:56:30] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:56:31] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:56:31] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:56:31] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:56:33] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:56:34] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:56:34] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:57:41] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:57:47] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:57:54] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:57:55] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:57:55] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:59:10] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:59:13] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:59:29] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 17:59:29] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
+[2025-05-18 18:02:32] Exception: Unknown column 'is_active' in 'where clause' in C:\newxampp\htdocs\Drunkies-Web-main\includes\database.php on line 31
