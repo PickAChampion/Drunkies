@@ -88,8 +88,21 @@ $brands = $conn->query($query);
 ?>
 
 <div class="container-fluid py-4">
-    <div class="row">
-        <div class="col-md-4">
+    <?php if (isset($success_message)): ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <?php echo $success_message; ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    <?php endif; ?>
+
+    <?php if (isset($error_message)): ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <?php echo $error_message; ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    <?php endif; ?>
+    <div class="row g-4 align-items-stretch">
+        <div class="col-md-4 mb-4 mb-md-0">
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title mb-0">
@@ -97,20 +110,6 @@ $brands = $conn->query($query);
                     </h5>
                 </div>
                 <div class="card-body">
-                    <?php if (isset($success_message)): ?>
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <?php echo $success_message; ?>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        </div>
-                    <?php endif; ?>
-
-                    <?php if (isset($error_message)): ?>
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <?php echo $error_message; ?>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        </div>
-                    <?php endif; ?>
-
                     <form action="" method="POST">
                         <?php if ($edit_brand): ?>
                             <input type="hidden" name="brand_id" value="<?php echo $edit_brand['id']; ?>">

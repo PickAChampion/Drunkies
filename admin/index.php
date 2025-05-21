@@ -44,7 +44,7 @@ $lowStockProducts = $conn->query($query);
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Sales</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">₱<?php echo number_format($salesStats['total_sales'], 2); ?></div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span class="dashboard-stat-number">₱<?php echo number_format($salesStats['total_sales'], 2); ?></span></div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -61,7 +61,7 @@ $lowStockProducts = $conn->query($query);
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Orders</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $salesStats['total_orders']; ?></div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span class="dashboard-stat-number"><?php echo $salesStats['total_orders']; ?></span></div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-shopping-cart fa-2x text-gray-300"></i>
@@ -78,7 +78,7 @@ $lowStockProducts = $conn->query($query);
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Average Order Value</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">₱<?php echo number_format($salesStats['average_order_value'], 2); ?></div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span class="dashboard-stat-number">₱<?php echo number_format($salesStats['average_order_value'], 2); ?></span></div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-chart-line fa-2x text-gray-300"></i>
@@ -95,7 +95,7 @@ $lowStockProducts = $conn->query($query);
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Users</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $userStats['total_users']; ?></div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span class="dashboard-stat-number"><?php echo $userStats['total_users']; ?></span></div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -130,7 +130,7 @@ $lowStockProducts = $conn->query($query);
                                     <?php while ($order = $recentOrders->fetch_assoc()): ?>
                                         <tr>
                                             <td>#<?php echo $order['id']; ?></td>
-                                            <td><?php echo htmlspecialchars($order['user_name']); ?></td>
+                                            <td><?php echo $order['user_name'] ? htmlspecialchars($order['user_name']) : 'Guest'; ?></td>
                                             <td>₱<?php echo number_format($order['total_amount'], 2); ?></td>
                                             <td>
                                                 <?php

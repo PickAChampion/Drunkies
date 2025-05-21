@@ -145,8 +145,11 @@ $products = $conn->query($query);
                         </div>
                         <p class="card-text small mb-3"><?php echo htmlspecialchars(substr($product['description'], 0, 100)) . '...'; ?></p>
                         <div class="d-grid">
-                            <button class="btn btn-primary add-to-cart" data-product-id="<?php echo $product['product_id']; ?>">
+                            <button class="btn btn-primary add-to-cart" data-product-id="<?php echo $product['id']; ?>">
                                 Add to Cart
+                            </button>
+                            <button class="btn btn-outline-secondary view-product mt-2" data-product-id="<?php echo $product['id']; ?>">
+                                View Details
                             </button>
                         </div>
                     </div>

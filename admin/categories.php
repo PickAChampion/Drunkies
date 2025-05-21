@@ -88,105 +88,110 @@ $categories = $conn->query($query);
 ?>
 
 <div class="container-fluid py-4">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title mb-0">
-                        <?php echo $edit_category ? 'Edit Category' : 'Add New Category'; ?>
-                    </h5>
-                </div>
-                <div class="card-body">
-                    <?php if (isset($success_message)): ?>
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <?php echo $success_message; ?>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        </div>
-                    <?php endif; ?>
-
-                    <?php if (isset($error_message)): ?>
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <?php echo $error_message; ?>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        </div>
-                    <?php endif; ?>
-
-                    <form action="" method="POST">
-                        <?php if ($edit_category): ?>
-                            <input type="hidden" name="category_id" value="<?php echo $edit_category['id']; ?>">
-                        <?php endif; ?>
-
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Category Name</label>
-                            <input type="text" class="form-control" id="name" name="name" 
-                                   value="<?php echo htmlspecialchars($name ?? ''); ?>" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="description" class="form-label">Description</label>
-                            <textarea class="form-control" id="description" name="description" rows="3"><?php 
-                                echo htmlspecialchars($description ?? ''); 
-                            ?></textarea>
-                        </div>
-
-                        <div class="d-flex gap-2">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save"></i> 
-                                <?php echo $edit_category ? 'Update Category' : 'Add Category'; ?>
-                            </button>
-                            <?php if ($edit_category): ?>
-                                <a href="categories.php" class="btn btn-secondary">Cancel</a>
-                            <?php endif; ?>
-                        </div>
-                    </form>
-                </div>
-            </div>
+    <?php if (isset($success_message)): ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <?php echo $success_message; ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
+    <?php endif; ?>
 
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title mb-0">Categories</h5>
+    <?php if (isset($error_message)): ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <?php echo $error_message; ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    <?php endif; ?>
+    <div class="categories-outer-card card">
+        <div class="card-body">
+            <h1 class="h3 mb-0">Categories</h1>
+            <hr class="custom-divider">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <div class="card bg-dark text-white">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">
+                                <?php echo $edit_category ? 'Edit Category' : 'Add New Category'; ?>
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <form action="" method="POST">
+                                <?php if ($edit_category): ?>
+                                    <input type="hidden" name="category_id" value="<?php echo $edit_category['id']; ?>">
+                                <?php endif; ?>
+
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Category Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" 
+                                           value="<?php echo htmlspecialchars($name ?? ''); ?>" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="description" class="form-label">Description</label>
+                                    <textarea class="form-control" id="description" name="description" rows="3"><?php 
+                                        echo htmlspecialchars($description ?? ''); 
+                                    ?></textarea>
+                                </div>
+
+                                <div class="d-flex gap-2">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save"></i> 
+                                        <?php echo $edit_category ? 'Update Category' : 'Add Category'; ?>
+                                    </button>
+                                    <?php if ($edit_category): ?>
+                                        <a href="categories.php" class="btn btn-secondary">Cancel</a>
+                                    <?php endif; ?>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                    <th>Products</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php while ($category = $categories->fetch_assoc()): ?>
-                                <tr>
-                                    <td><?php echo htmlspecialchars($category['name']); ?></td>
-                                    <td><?php echo htmlspecialchars($category['description']); ?></td>
-                                    <td><?php echo $category['product_count']; ?></td>
-                                    <td>
-                                        <div class="btn-group">
-                                            <a href="?edit=<?php echo $category['id']; ?>" 
-                                               class="btn btn-sm btn-primary"
-                                               data-bs-toggle="tooltip"
-                                               title="Edit Category">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
-                                            <?php if ($category['product_count'] == 0): ?>
-                                                <a href="?delete=<?php echo $category['id']; ?>" 
-                                                   class="btn btn-sm btn-danger delete-btn"
-                                                   data-bs-toggle="tooltip"
-                                                   title="Delete Category">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            <?php endif; ?>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <?php endwhile; ?>
-                            </tbody>
-                        </table>
+
+                <div class="col-md-8">
+                    <div class="card bg-dark text-white">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Categories</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Description</th>
+                                            <th>Products</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php while ($category = $categories->fetch_assoc()): ?>
+                                        <tr>
+                                            <td><?php echo htmlspecialchars($category['name']); ?></td>
+                                            <td><?php echo htmlspecialchars($category['description']); ?></td>
+                                            <td><?php echo $category['product_count']; ?></td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <a href="?edit=<?php echo $category['id']; ?>" 
+                                                       class="btn btn-sm btn-primary"
+                                                       data-bs-toggle="tooltip"
+                                                       title="Edit Category">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
+                                                    <?php if ($category['product_count'] == 0): ?>
+                                                        <a href="?delete=<?php echo $category['id']; ?>" 
+                                                           class="btn btn-sm btn-danger delete-btn"
+                                                           data-bs-toggle="tooltip"
+                                                           title="Delete Category">
+                                                            <i class="fas fa-trash"></i>
+                                                        </a>
+                                                    <?php endif; ?>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <?php endwhile; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

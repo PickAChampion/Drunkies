@@ -39,6 +39,9 @@ $categories = getAllCategories();
     
     <!-- SweetAlert2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Custom JS -->
+    <script src="assets/js/admin.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -97,6 +100,13 @@ $categories = getAllCategories();
                 </ul>
                 <ul class="navbar-nav">
                     <?php if (isset($_SESSION['user_id'])): ?>
+                        <?php if (!empty($_SESSION['is_admin'])): ?>
+                            <li class="nav-item me-2 d-flex align-items-center">
+                                <a href="admin/index.php" class="btn btn-warning text-dark fw-bold px-3 py-1" style="font-size:1rem;">
+                                    <i class="fas fa-cog me-1 text-dark"></i> Admin Dashboard
+                                </a>
+                            </li>
+                        <?php endif; ?>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle user-dropdown" href="#" id="userMenu" role="button" data-bs-toggle="dropdown">
                                 <i class="fas fa-user me-2"></i><?php echo htmlspecialchars($_SESSION['username']); ?>
@@ -110,13 +120,17 @@ $categories = getAllCategories();
                                 <li><a class="dropdown-item" href="orders.php"><i class="fas fa-shopping-bag me-2"></i>My Orders</a></li>
                                 <li><a class="dropdown-item" href="settings.php"><i class="fas fa-cog me-2"></i>Settings</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="cart.php">
                                 <i class="fas fa-shopping-cart me-2"></i>Cart
                                 <span class="badge bg-danger" id="cart-count">0</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="logout.php" class="btn btn-danger ms-2 px-3 py-1 fw-bold">
+                                <i class="fas fa-sign-out-alt me-1"></i> Logout
                             </a>
                         </li>
                     <?php else: ?>

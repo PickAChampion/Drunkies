@@ -153,4 +153,11 @@ $(document).ready(function() {
             });
         }
     }
+
+    // Manual Bootstrap dropdown initialization for all .dropdown-toggle
+    if (window.bootstrap) {
+        document.querySelectorAll('.dropdown-toggle').forEach(function (dropdownToggleEl) {
+            new bootstrap.Dropdown(dropdownToggleEl);
+        });
+    }
 }); 

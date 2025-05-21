@@ -1,0 +1,3 @@
+[2025-05-20 00:37:36] Error: [8192] htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\newxampp\htdocs\Drunkies-Web-main\admin\index.php on line 133
+[2025-05-20 00:39:49] Exception: Table 'drunkies_db.addresses' doesn't exist in C:\newxampp\htdocs\Drunkies-Web-main\admin\view_order.php on line 19
+[2025-05-20 00:43:02] Exception: Unknown column 'p.image' in 'field list' in C:\newxampp\htdocs\Drunkies-Web-main\admin\view_order.php on line 35

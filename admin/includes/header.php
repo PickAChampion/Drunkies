@@ -29,72 +29,73 @@ $current_page = basename($_SERVER['PHP_SELF']);
 </head>
 <body>
 
-<!-- Sidebar -->
-<div class="admin-sidebar">
-    <div class="px-3 mb-4">
-        <h4 class="text-center">Drunkies</h4>
-        <p class="text-center mb-0"><small>Admin Panel</small></p>
-    </div>
-    <nav class="nav flex-column">
-        <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>" href="index.php">
-            <i class="fas fa-tachometer-alt me-2"></i>
-            <span>Dashboard</span>
-        </a>
-        <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'products.php' ? 'active' : ''; ?>" href="products.php">
-            <i class="fas fa-beer me-2"></i>
-            <span>Products</span>
-        </a>
-        <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'brands.php' ? 'active' : ''; ?>" href="brands.php">
-            <i class="fas fa-building me-2"></i>
-            <span>Brands</span>
-        </a>
-        <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'categories.php' ? 'active' : ''; ?>" href="categories.php">
-            <i class="fas fa-tags me-2"></i>
-            <span>Categories</span>
-        </a>
-        <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'orders.php' ? 'active' : ''; ?>" href="orders.php">
-            <i class="fas fa-shopping-cart me-2"></i>
-            <span>Orders</span>
-        </a>
-        <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'users.php' ? 'active' : ''; ?>" href="users.php">
-            <i class="fas fa-users me-2"></i>
-            <span>Users</span>
-        </a>
-        <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'settings.php' ? 'active' : ''; ?>" href="settings.php">
-            <i class="fas fa-cog me-2"></i>
-            <span>Settings</span>
-        </a>
-        <div class="dropdown-divider my-3"></div>
-        <a class="nav-link" href="../index.php">
-            <i class="fas fa-home me-2"></i>
-            <span>View Site</span>
-        </a>
-        <a class="nav-link" href="../logout.php">
-            <i class="fas fa-sign-out-alt me-2"></i>
-            <span>Logout</span>
-        </a>
-    </nav>
-</div>
-
-<!-- Main Content -->
-<div class="admin-main">
-    <!-- Header -->
-    <div class="admin-header d-flex justify-content-between align-items-center">
-        <h1 class="h3 mb-0">
-            <?php
-            $page = basename($_SERVER['PHP_SELF'], '.php');
-            echo ucfirst($page == 'index' ? 'Dashboard' : $page);
-            ?>
-        </h1>
-        <div class="d-flex align-items-center">
-            <span class="me-3"><?php echo htmlspecialchars($_SESSION['username']); ?></span>
-            <a href="../logout.php" class="btn btn-outline-danger btn-sm">
-                <i class="fas fa-sign-out-alt"></i> Logout
+<!-- Wrapper for sidebar and main content -->
+<div class="admin-wrapper d-flex">
+    <!-- Sidebar -->
+    <div class="admin-sidebar d-flex flex-column justify-content-between">
+        <div>
+            <div class="px-3 mb-4">
+                <h4 class="text-center">Drunkies</h4>
+                <p class="text-center mb-0"><small>Admin Panel</small></p>
+            </div>
+            <nav class="nav flex-column">
+                <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>" href="index.php">
+                    <i class="fas fa-tachometer-alt me-2"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'products.php' ? 'active' : ''; ?>" href="products.php">
+                    <i class="fas fa-beer me-2"></i>
+                    <span>Products</span>
+                </a>
+                <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'brands.php' ? 'active' : ''; ?>" href="brands.php">
+                    <i class="fas fa-building me-2"></i>
+                    <span>Brands</span>
+                </a>
+                <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'categories.php' ? 'active' : ''; ?>" href="categories.php">
+                    <i class="fas fa-tags me-2"></i>
+                    <span>Categories</span>
+                </a>
+                <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'orders.php' ? 'active' : ''; ?>" href="orders.php">
+                    <i class="fas fa-shopping-cart me-2"></i>
+                    <span>Orders</span>
+                </a>
+                <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'users.php' ? 'active' : ''; ?>" href="users.php">
+                    <i class="fas fa-users me-2"></i>
+                    <span>Users</span>
+                </a>
+                <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'settings.php' ? 'active' : ''; ?>" href="settings.php">
+                    <i class="fas fa-cog me-2"></i>
+                    <span>Settings</span>
+                </a>
+                <div class="dropdown-divider my-3"></div>
+                <a class="nav-link" href="../index.php">
+                    <i class="fas fa-home me-2"></i>
+                    <span>View Site</span>
+                </a>
+            </nav>
+        </div>
+        <div class="mb-3 px-3">
+            <a class="nav-link btn btn-outline-danger w-100" href="../logout.php">
+                <i class="fas fa-sign-out-alt me-2"></i>
+                <span>Logout</span>
             </a>
         </div>
     </div>
 
-    <div class="container-fluid py-4">
+    <!-- Main Content -->
+    <div class="admin-main flex-grow-1">
+        <!-- Header -->
+        <div class="admin-header d-flex justify-content-between align-items-center">
+            <h1 class="h3 mb-0">
+                <?php
+                $page = basename($_SERVER['PHP_SELF'], '.php');
+                echo ucfirst($page == 'index' ? 'Dashboard' : $page);
+                ?>
+            </h1>
+            <div class="d-flex align-items-center">
+                <span class="me-3"><?php echo htmlspecialchars($_SESSION['username']); ?></span>
+            </div>
+        </div>
         <?php if (isset($_SESSION['success'])): ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <?php 
@@ -114,6 +115,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         <?php endif; ?>
+        <!-- The page content will now be wrapped in its own container-fluid -->
     </div>
 </div>
 

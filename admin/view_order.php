@@ -11,10 +11,9 @@ if ($order_id <= 0) {
 }
 
 // Get order details with user information
-$query = "SELECT o.*, u.username, u.email, a.* 
+$query = "SELECT o.*, u.username, u.email 
           FROM orders o 
           JOIN users u ON o.user_id = u.id 
-          LEFT JOIN addresses a ON o.address_id = a.id 
           WHERE o.id = ?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $order_id);
@@ -29,7 +28,7 @@ if ($result->num_rows === 0) {
 $order = $result->fetch_assoc();
 
 // Get order items
-$query = "SELECT oi.*, p.name as product_name, p.image 
+$query = "SELECT oi.*, p.name as product_name, p.image_url 
           FROM order_items oi 
           JOIN products p ON oi.product_id = p.id 
           WHERE oi.order_id = ?";
@@ -70,8 +69,8 @@ $order_items = $stmt->get_result();
                                 <tr>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <?php if ($item['image']): ?>
-                                                <img src="../uploads/products/<?php echo $item['image']; ?>" 
+                                            <?php if ($item['image_url']): ?>
+                                                <img src="../<?php echo htmlspecialchars($item['image_url']); ?>" 
                                                      alt="<?php echo htmlspecialchars($item['product_name']); ?>"
                                                      class="img-thumbnail me-2"
                                                      style="width: 50px; height: 50px; object-fit: cover;">
@@ -169,11 +168,7 @@ $order_items = $stmt->get_result();
                 </div>
                 <div class="card-body">
                     <address class="mb-0">
-                        <?php echo htmlspecialchars($order['street']); ?><br>
-                        <?php echo htmlspecialchars($order['city']); ?>, 
-                        <?php echo htmlspecialchars($order['state']); ?> 
-                        <?php echo htmlspecialchars($order['postal_code']); ?><br>
-                        <?php echo htmlspecialchars($order['country']); ?>
+                        <?php echo nl2br(htmlspecialchars($order['shipping_address'])); ?>
                     </address>
                 </div>
             </div>
